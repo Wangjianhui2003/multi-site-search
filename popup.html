@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi Search</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>Multi Search</h1>
+        <a href="options.html" target="_blank" rel="noreferrer">Sites &amp; settings</a>
+      </header>
+
+      <form id="search-form" novalidate>
+        <label class="field-label" for="query">Search for</label>
+        <input
+          id="query"
+          name="query"
+          type="search"
+          placeholder="Type one query…"
+          autocomplete="off"
+          spellcheck="false"
+          maxlength="2000"
+          autofocus
+        />
+
+        <div class="sites-header">
+          <span id="sites-label">Search in</span>
+          <div class="selection-actions">
+            <button
+              id="select-all"
+              class="text-button"
+              type="button"
+              aria-label="Select all sites"
+            >
+              All
+            </button>
+            <button
+              id="select-none"
+              class="text-button"
+              type="button"
+              aria-label="Clear all selected sites"
+            >
+              None
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="sites"
+          class="site-grid"
+          role="group"
+          aria-labelledby="sites-label"
+        ></div>
+
+        <p id="no-sites" class="notice" hidden>
+          No sites available. <a href="options.html" target="_blank" rel="noreferrer">Choose sites</a>.
+        </p>
+
+        <footer class="app-footer">
+          <span id="summary" class="summary">0 sites selected</span>
+          <button id="search-button" class="primary-button" type="submit" disabled>
+            Search
+          </button>
+        </footer>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "multi-search-extension",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A simple multi-site search Chrome extension",
+  "scripts": {
+    "test": "node --test"
+  }
+}

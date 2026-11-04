@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi Search settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <h1>Multi Search settings</h1>
+        <p>
+          Manage the sites that appear in the popup. All sites are editable, and
+          changes are saved automatically.
+        </p>
+      </header>
+
+      <section aria-labelledby="custom-heading">
+        <h2 id="custom-heading">Custom sites</h2>
+        <p class="hint">
+          The preconfigured sites below are fully editable. Check a site to show
+          it in the popup, or use Edit to change its name or search URL.
+        </p>
+
+        <div id="custom-sites" class="custom-sites"></div>
+        <p id="no-custom-sites" class="hint">No sites yet. Add one below.</p>
+
+        <h3 id="site-form-title">Add a site</h3>
+        <form id="add-site-form" class="add-site-form" novalidate>
+          <label>
+            <span>Name</span>
+            <input
+              id="custom-name"
+              name="name"
+              type="text"
+              maxlength="60"
+              placeholder="Example Search"
+              autocomplete="off"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Search URL</span>
+            <input
+              id="custom-url"
+              name="url"
+              type="url"
+              placeholder="https://example.com/search?q={query}"
+              autocomplete="off"
+              spellcheck="false"
+              required
+            />
+          </label>
+
+          <p class="hint url-hint">
+            Put <code>{query}</code> where the search text belongs. Only HTTP and
+            HTTPS URLs are supported.
+          </p>
+
+          <p id="form-error" class="error" role="alert" hidden></p>
+          <div class="form-actions">
+            <button id="save-site-button" class="primary-button" type="submit">
+              Add site
+            </button>
+            <button
+              id="cancel-edit-button"
+              class="secondary-button"
+              type="button"
+              hidden
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section aria-labelledby="behavior-heading">
+        <h2 id="behavior-heading">Behavior</h2>
+        <label class="checkbox-row">
+          <input id="open-in-new-window" type="checkbox" />
+          <span>Open result tabs in a new window</span>
+        </label>
+        <p class="hint">
+          When off, results open in the current window and the first result is
+          focused.
+        </p>
+      </section>
+
+      <footer class="page-footer">
+        <button id="reset-button" class="secondary-button" type="button">
+          Reset to defaults
+        </button>
+        <span id="status" class="status" role="status" aria-live="polite">
+          Changes save automatically.
+        </span>
+      </footer>
+    </main>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
